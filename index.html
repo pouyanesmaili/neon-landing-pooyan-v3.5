@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RoG3r Neo V3.5 – Cyber Elite TANK Edition</title>
+
+  <!-- فونت‌ها -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Vazirmatn:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- سبک -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- تم سوئیچر -->
+  <div id="theme-toggle" title="تغییر تم"><i class="fa-solid fa-sun"></i></div>
+
+  <!-- HEADER -->
+  <header class="cyber-header">
+    <div class="logo">⚡ RoG3r <span>Neo V3.5</span></div>
+    <nav>
+      <ul>
+        <li><a href="#features">ویژگی‌ها</a></li>
+        <li><a href="#gallery">گالری</a></li>
+        <li><a href="#pricing">پلن‌ها</a></li>
+        <li><a href="#testimonials">نظرات</a></li>
+        <li><a href="#contact">تماس</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero" class="hero-section">
+    <div class="hero-content">
+      <h1><span id="typewriter"></span></h1>
+      <p>نسخه TANK با جلوه‌های بصری سنگین، اما بدون حتی یک باگ 💎</p>
+      <a href="#features" class="cta-btn">شروع</a>
+    </div>
+    <canvas id="particles"></canvas>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="features">
+    <h2>ویژگی‌های مورد عشق</h2>
+    <div class="features-grid">
+      <div class="feature-card tilt">
+        <i class="fa-solid fa-robot"></i>
+        <h3>انیمیشن هوشمند</h3>
+        <p>حرکت نرم و سینمایی در هر اسکرول و کلیک.</p>
+      </div>
+      <div class="feature-card tilt">
+        <i class="fa-solid fa-bolt"></i>
+        <h3>افکت نئون</h3>
+        <p>نورپردازی لایه‌به‌لایه با Glow واقعی!</p>
+      </div>
+      <div class="feature-card tilt">
+        <i class="fa-solid fa-shield-halved"></i>
+        <h3>بدون باگ</h3>
+        <p>ساختار کدنویسی استاندارد + عملکرد بهینه.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COUNTER -->
+  <section id="stats" class="stats">
+    <div class="counter-box">
+      <span class="counter" data-target="1200">0</span>
+      <p>پروژه‌های اجرا شده</p>
+    </div>
+    <div class="counter-box">
+      <span class="counter" data-target="700">0</span>
+      <p>مشتری راضی</p>
+    </div>
+    <div class="counter-box">
+      <span class="counter" data-target="15">0</span>
+      <p>جوایز برنده شده</p>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="gallery">
+    <h2>نمونه‌کارهای چشمگیر</h2>
+    <div class="gallery-grid">
+      <img src="https://picsum.photos/500/350?random=1" loading="lazy" alt="sample1" />
+      <img src="https://picsum.photos/500/350?random=2" loading="lazy" alt="sample2" />
+      <img src="https://picsum.photos/500/350?random=3" loading="lazy" alt="sample3" />
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="testimonials">
+    <h2>نظرات مشتریان</h2>
+    <div class="slider">
+      <div class="slide active">«ظاهر واقعاً چشمگیر و مدرن.» – رضا م.</div>
+      <div class="slide">«سریع، شفاف، نئون واقعی!» – الهام ف.</div>
+      <div class="slide">«بهترین تجربه کاربری» – شهاب ح.</div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="pricing">
+    <h2>پلن‌های ارتقاء</h2>
+    <div class="pricing-grid">
+      <div class="plan"><h3>Basic</h3><p>۴۹۰ هزار</p></div>
+      <div class="plan highlight"><h3>Pro</h3><p>۷۹۰ هزار</p></div>
+      <div class="plan"><h3>Ultra</h3><p>۱٫۰۹۰ میلیون</p></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <h2>ارتباط با پویان ❤️</h2>
+    <form id="contactForm">
+      <input type="text" placeholder="نام" required />
+      <input type="email" placeholder="ایمیل" required />
+      <textarea placeholder="پیام" required></textarea>
+      <button type="submit">ارسال</button>
+    </form>
+    <p id="formMessage"></p>
+  </section>
+
+  <footer>ساخته با عشق توسط پویان ❤️ | 2025</footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
+
+
