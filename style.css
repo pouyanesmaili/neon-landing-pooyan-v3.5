@@ -31,18 +31,20 @@ nav ul{display:flex;gap:20px;list-style:none;}
 nav a{text-decoration:none;color:var(--text);font-weight:600;}
 nav a:hover{color:var(--accent3);}
 
-/* HERO */
-.hero-section{
-  height:100dvh;
-  min-height:650px;
-  display:flex;align-items:center;justify-content:center;
-  text-align:center;position:relative;
-  padding-top:80px;
-  overflow:hidden;
+/* HERO SECTION — FIXED HEIGHT FOR MOBILE SAMSUNG INTERNET */
+.hero-section {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  height: 100dvh; /* برای مرورگرهای مدرن */
+  min-height: 92svh; /* fallback برای قدیمی‌ترها */
+  padding-top: 70px; /* جا برای منوی ثابتی که بالاست */
 }
 #particles{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;}
-.hero-content{position:relative;z-index:2;max-width:600px;}
+.hero-content{position:relative;z-index:2;max-width:600px; padding: 0 20px;}
 .hero-content h1{font-family:"Orbitron";font-size:2.3rem;color:var(--accent);}
 .hero-content p{margin:14px 0;color:var(--muted);}
 .cta-btn{background:linear-gradient(90deg,var(--accent2),var(--accent3));color:#fff;padding:12px 28px;border-radius:10px;font-weight:700;display:inline-block;}
@@ -86,6 +88,7 @@ footer{text-align:center;padding:20px;color:var(--muted);margin-top:50px;}
   section{padding:50px 0;}
   .pricing-grid{flex-direction:column;}
 }
+
 
 
 
