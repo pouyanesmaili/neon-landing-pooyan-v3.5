@@ -35,20 +35,21 @@ h2 {
 }
 
 /* === HEADER === */
-.cyber-header {
-  box-sizing: border-box;
-  position: fixed;
+.cyber-header .cyber-header {
+  box-sizing: border-box;           /* ✅ برای کنترل دقیق padding داخل عرض کامل */
+  position: fixed;                  /* ✅ همیشه چسبیده بالای صفحه */
   top: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(8px);
-  padding: 14px 40px;
-  z-index: 10;
-  transition: box-shadow 0.3s;
+  width: 100%;                      /* ✅ کل عرض viewport */
+  display: flex;                    /* ✅ بچه‌ها (لوگو و منو) کنار هم */
+  justify-content: space-between;   /* ✅ بین‌شون فاصله */
+  align-items: center;              /* ✅ وسط‌چینی عمودی */
+  background: rgba(255, 255, 255, 0.6); /* ✅ شفاف روشن (CoreBright!) */
+  backdrop-filter: blur(8px);       /* ✅ افکت بلور شیشه‌ای */
+  padding: 14px 40px;               /* ✅ فضای داخلی استاندارد */
+  z-index: 10;                      /* ✅ بالاتر از همه لایه‌ها */
+  transition: box-shadow 0.3s;      /* ✅ برای افکت سایه موقع اسکرول */
 }
+
 
 .cyber-header.scrolled {
   box-shadow: 0 0 20px var(--accent);
@@ -363,6 +364,7 @@ footer {
     padding-top: 60px;
   }
 }
+
 
 
 
