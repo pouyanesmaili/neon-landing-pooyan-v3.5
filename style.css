@@ -1,369 +1,105 @@
-/* === RoG3r Neo V3.5 – Core Bright Mode === */
-/* Fixed Theme: Blue-Cyan Light – by Pouyan ❤️ */
-
 :root {
-  --bg: #f8fbff;
-  --text: #0a0a23;
-  --accent: #22d3ee;
-  --accent2: #a855f7;
-  --accent3: #00ffa9;
-  --muted: #64748b;
-}
-body {
-  background: var(--bg);
-  color: var(--text);
-}
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  --bg:#f8fbff;
+  --text:#0a0a23;
+  --accent:#22d3ee;
+  --accent2:#a855f7;
+  --accent3:#00ffa9;
+  --muted:#64748b;
 }
 
-body {
-  font-family: "Vazirmatn", sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  overflow-x: hidden;
-  transition: background 0.5s, color 0.5s;
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:"Vazirmatn",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
 }
 
-h2 {
-  font-family: "Orbitron";
-  text-align: center;
-  margin-bottom: 40px;
-  color: var(--accent2);
+h2{font-family:"Orbitron";text-align:center;margin-bottom:40px;color:var(--accent2);}
+
+.cyber-header {
+  box-sizing:border-box;
+  position:fixed;
+  top:0; width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(255,255,255,0.6);
+  backdrop-filter:blur(8px);
+  padding:14px 40px;
+  z-index:10;
+  transition:box-shadow .3s;
+}
+.cyber-header.scrolled{box-shadow:0 0 20px var(--accent);}
+.cyber-header .logo{font-family:"Orbitron";font-weight:800;color:var(--accent);}
+nav ul{display:flex;gap:20px;list-style:none;}
+nav a{color:var(--text);text-decoration:none;font-weight:600;}
+nav a:hover{color:var(--accent3);}
+
+/* HERO */
+.hero-section{
+  position:relative;
+  height:100svh;
+  min-height:650px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding-top:80px;
+  overflow:hidden;
+}
+.hero-section canvas{
+  position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;
+}
+.hero-content{
+  position:relative;z-index:2;max-width:600px;
+}
+.hero-content h1{font-family:"Orbitron";font-size:2.3rem;color:var(--accent);}
+.hero-content p{margin:14px 0;color:var(--muted);}
+.cta-btn{background:linear-gradient(90deg,var(--accent2),var(--accent3));
+ color:#fff;padding:12px 28px;border-radius:10px;font-weight:700;border:none;cursor:pointer;}
+.cta-btn:hover{transform:scale(1.05);}
+
+/* SECTIONS */
+section{padding:90px 0;}
+.features-grid{display:grid;gap:30px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));max-width:900px;margin:auto;}
+.feature-card{padding:30px;background:rgba(255,255,255,0.8);border-radius:14px;text-align:center;transition:transform .3s;box-shadow:0 0 5px rgba(0,0,0,0.1);}
+.feature-card:hover{transform:translateY(-5px);}
+
+.stats{display:flex;justify-content:center;gap:40px;text-align:center;background:rgba(255,255,255,.6);}
+.counter{font-size:2rem;color:var(--accent2);}
+
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;max-width:1000px;margin:auto;}
+.gallery-grid img{width:100%;border-radius:12px;cursor:pointer;transition:transform .3s;}
+.gallery-grid img:hover{transform:scale(1.03);}
+
+.slider{max-width:700px;margin:0 auto;position:relative;overflow:hidden;}
+.slide{display:none;font-size:1.1rem;color:var(--text);text-align:center;padding:20px;}
+.slide.active{display:block;animation:fade 1s;}
+@keyframes fade{from{opacity:0;}to{opacity:1;}}
+
+.pricing-grid{display:flex;gap:30px;justify-content:center;}
+.plan{padding:20px;background:rgba(255,255,255,.7);border-radius:12px;text-align:center;flex:1;}
+.highlight{border:2px solid var(--accent);transform:scale(1.05);}
+.plan h3{color:var(--accent2);}
+.plan p{font-size:1.3rem;color:var(--accent3);}
+
+.contact form{display:flex;flex-direction:column;gap:12px;max-width:500px;margin:auto;}
+.contact input,.contact textarea{padding:10px;border-radius:8px;border:1px solid #ccc;}
+.contact button{background:var(--accent2);color:#fff;border:none;padding:10px;border-radius:8px;cursor:pointer;}
+.contact button:hover{background:var(--accent3);color:#000;}
+#formMessage{text-align:center;color:var(--accent3);margin-top:10px;}
+
+footer{text-align:center;padding:20px;color:var(--muted);margin-top:50px;}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero-section{height:90svh;padding-top:60px;}
+  section{padding:50px 0;}
+  .pricing-grid{flex-direction:column;align-items:center;}
 }
 
-/* === HEADER === */
-.cyber-header .cyber-header {
-  box-sizing: border-box;           /* ✅ برای کنترل دقیق padding داخل عرض کامل */
-  position: fixed;                  /* ✅ همیشه چسبیده بالای صفحه */
-  top: 0;
-  width: 100%;                      /* ✅ کل عرض viewport */
-  display: flex;                    /* ✅ بچه‌ها (لوگو و منو) کنار هم */
-  justify-content: space-between;   /* ✅ بین‌شون فاصله */
-  align-items: center;              /* ✅ وسط‌چینی عمودی */
-  background: rgba(255, 255, 255, 0.6); /* ✅ شفاف روشن (CoreBright!) */
-  backdrop-filter: blur(8px);       /* ✅ افکت بلور شیشه‌ای */
-  padding: 14px 40px;               /* ✅ فضای داخلی استاندارد */
-  z-index: 10;                      /* ✅ بالاتر از همه لایه‌ها */
-  transition: box-shadow 0.3s;      /* ✅ برای افکت سایه موقع اسکرول */
-}
 
-
-.cyber-header.scrolled {
-  box-shadow: 0 0 20px var(--accent);
-}
-.cyber-header .logo {
-  font-family: "Orbitron";
-  font-weight: 800;
-  color: var(--accent);
-}
-nav ul {
-  display: flex;
-  gap: 20px;
-  list-style: none;
-}
-nav a {
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 600;
-}
-nav a:hover {
-  color: var(--accent3);
-}
-
-/* === HERO === */
-.hero-section {
-  height: 100vh;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-#particles {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-.hero-content {
-  z-index: 2;
-  max-width: 600px;
-}
-.hero-content h1 {
-  font-family: "Orbitron";
-  font-size: 2.3rem;
-  color: var(--accent);
-}
-.hero-content p {
-  margin: 14px 0;
-  color: var(--muted);
-}
-.cta-btn {
-  background: linear-gradient(90deg, var(--accent2), var(--accent3));
-  color: #fff;
-  padding: 12px 28px;
-  border-radius: 10px;
-  font-weight: 700;
-  border: none;
-  cursor: pointer;
-}
-.cta-btn:hover {
-  transform: scale(1.05);
-}
-
-/* === FEATURES === */
-section {
-  padding: 90px 0;
-}
-.features-grid {
-  display: grid;
-  gap: 30px;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  max-width: 900px;
-  margin: auto;
-}
-.feature-card {
-  padding: 30px;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 14px;
-  text-align: center;
-  transition: transform 0.3s;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-.feature-card:hover {
-  transform: translateY(-5px);
-}
-
-/* === COUNTERS === */
-.stats {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  text-align: center;
-  background: rgba(255, 255, 255, 0.6);
-}
-.counter {
-  font-size: 2rem;
-  color: var(--accent2);
-}
-
-/* === GALLERY === */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  max-width: 1000px;
-  margin: auto;
-}
-.gallery-grid img {
-  width: 100%;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: transform 0.3s;
-}
-.gallery-grid img:hover {
-  transform: scale(1.03);
-}
-.lightbox {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.85);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
-}
-.lightbox img {
-  max-width: 80%;
-  border-radius: 10px;
-}
-
-/* === SLIDER === */
-.slider {
-  max-width: 700px;
-  margin: 0 auto;
-  position: relative;
-  overflow: hidden;
-}
-.slide {
-  display: none;
-  font-size: 1.1rem;
-  color: var(--text);
-  text-align: center;
-  padding: 20px;
-}
-.slide.active {
-  display: block;
-  animation: fade 1s;
-}
-@keyframes fade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* === PRICING === */
-.pricing-grid {
-  display: flex;
-  gap: 30px;
-  justify-content: center;
-}
-.plan {
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 12px;
-  text-align: center;
-  flex: 1;
-}
-.highlight {
-  border: 2px solid var(--accent);
-  transform: scale(1.05);
-}
-.plan h3 {
-  color: var(--accent2);
-}
-.plan p {
-  font-size: 1.3rem;
-  color: var(--accent3);
-}
-
-/* === CONTACT === */
-.contact form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  max-width: 500px;
-  margin: auto;
-}
-.contact input,
-.contact textarea {
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
-.contact button {
-  background: var(--accent2);
-  color: #fff;
-  border: none;
-  padding: 10px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-.contact button:hover {
-  background: var(--accent3);
-  color: #000;
-}
-#formMessage {
-  text-align: center;
-  color: var(--accent3);
-  margin-top: 10px;
-}
-/* === HERO FULL HEIGHT FIX === */
-.hero-section {
-  position: relative;
-  height: 100vh;              /* کل ارتفاع صفحه */
-  min-height: 650px;          /* حداقل برای دسکتاپ */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding-top: 80px;          /* برای جلوگیری از چسبیدن به هدر ثابت */
-  overflow: hidden;
-}
-
-/* Canvas تنظیم دقیق */
-.hero-section canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;                 /* پس‌زمینه */
-}
-
-/* محتوا بیاد رو بالای Canvas */
-.hero-section .hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 600px;
-  color: var(--text);
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  color: var(--muted);
-}
-
-/* === Responsive Fix / Mobile Adjustment === */
-@media (max-width: 768px) {
-  .hero-section {
-    height: 90vh;
-    justify-content: flex-end;
-    padding-bottom: 8vh;
-  }
-  .hero-content h1 {
-    font-size: 1.6rem;
-    line-height: 1.4;
-  }
-  .hero-content p {
-    font-size: 0.9rem;
-    padding: 0 16px;
-  }
-  .cta-btn {
-    padding: 10px 22px;
-    font-size: 1rem;
-  }
-}
-/* === HERO MOBILE ADAPT === */
-@media (max-width: 768px) {
-  .hero-section {
-    height: 90vh;             /* یکم کمتر تا آدرس‌بار موبایل نزنه بیرون */
-    padding-top: 60px;
-  }
-  .hero-content h1 {
-    font-size: 1.8rem;
-  }
-  .hero-content p {
-    font-size: 0.95rem;
-  }
-}
-
-/* === HERO MOBILE FIX V3.5.4 === */
-.hero-section {
-  position: relative;
-  height: 100svh; /* ← از vh به svh که با Address Bar سازگاره */
-  min-height: 650px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.hero-section canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-@media (max-width: 768px) {
-  .hero-section {
-    height: 90svh; /* خط طلایی برای موبایل */
-    padding-top: 60px;
-  }
-}
 
 
 
