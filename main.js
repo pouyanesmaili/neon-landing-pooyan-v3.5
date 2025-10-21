@@ -62,6 +62,30 @@ form.addEventListener("submit",e=>{
     form.reset();
   },1200);
 });
+// 🍔 کنترل دکمه سه‌خطی و باز/بسته شدن منو
+const navToggle = document.querySelector(".nav-toggle");
+const navMenu = document.querySelector("header nav ul");
+
+navToggle.addEventListener("click", () => {
+  navMenu.classList.toggle("open");
+  navToggle.classList.toggle("fa-bars");
+  navToggle.classList.toggle("fa-xmark"); // تغییر به ضربدر
+});
+
+// 📜 اسکرول نرم برای لینک‌ها
+document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+  link.addEventListener("click", e => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute("href"));
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+    // بستن منو پس از کلیک در موبایل
+    navMenu.classList.remove("open");
+    navToggle.classList.add("fa-bars");
+    navToggle.classList.remove("fa-xmark");
+  });
+});
 
 // === Particles (Mobile Safe) ===
 const canvas=document.getElementById("particles");
@@ -106,6 +130,7 @@ function animate(){
   requestAnimationFrame(animate);
 }
 animate();
+
 
 
 
