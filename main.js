@@ -59,29 +59,21 @@ form.addEventListener("submit",e=>{
 const canvas=document.getElementById("particles");
 const ctx=canvas.getContext("2d");
 
-function resizeCanvas(){
-  const realHeight=window.visualViewport ? window.visualViewport.height : window.innerHeight;
+function resizeCanvas() {
+  const headerHeight = document.querySelector(".cyber-header").offsetHeight || 60;
+  const realHeight =
+    (window.visualViewport ? window.visualViewport.height : window.innerHeight) - headerHeight;
   canvas.width = window.innerWidth;
-  canvas.height = realHeight * 0.97;  // جلوگیری از برش پایین در Samsung Internet
+  canvas.height = realHeight;
 }
-// اجرای اولیه
 resizeCanvas();
 
-// پچ چرخش صفحه (رفع باگ portrait در Samsung Internet)
 let rotateTimeout;
 window.addEventListener("orientationchange", () => {
   clearTimeout(rotateTimeout);
-  rotateTimeout = setTimeout(() => {
-    resizeCanvas();
-  }, 350); // صبر تا viewport واقعی آپدیت بشه
+  rotateTimeout = setTimeout(resizeCanvas, 350);
 });
-
-// مانیتور تغییرات دقیق ویوپورت
-window.visualViewport?.addEventListener("resize", () => {
-  resizeCanvas();
-});
-
-// اطمینان نهایی از هم‌ترازی هنگام تغییر سایز
+window.visualViewport?.addEventListener("resize", resizeCanvas);
 window.addEventListener("resize", resizeCanvas);
 
 // ادامه‌ی کد ذرات 👇
@@ -115,6 +107,7 @@ function animate(){
   requestAnimationFrame(animate);
 }
 animate();
+
 
 
 
