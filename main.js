@@ -80,8 +80,9 @@ const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
 
 function resizeCanvas() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight * 0.8;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight * 0.9; // برای تطبیق با موبایل
+
 }
 resizeCanvas();
 
@@ -122,5 +123,6 @@ function animate() {
   requestAnimationFrame(animate);
 }
 animate();
+
 
 
