@@ -1,10 +1,10 @@
 :root {
-  --bg: #f8fbff;
-  --text: #0a0a23;
-  --accent: #22d3ee;
-  --accent2: #a855f7;
-  --accent3: #00ffa9;
-  --muted: #64748b;
+  --bg:#f8fbff;
+  --text:#0a0a23;
+  --accent:#22d3ee;
+  --accent2:#a855f7;
+  --accent3:#00ffa9;
+  --muted:#64748b;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -15,79 +15,89 @@ body{
   overflow-x:hidden;
 }
 
-/* HEADER */
 .cyber-header{
   position:fixed;top:0;width:100%;
   display:flex;justify-content:space-between;align-items:center;
-  background:rgba(255,255,255,0.7);
+  background:rgba(255,255,255,0.8);
   backdrop-filter:blur(8px);
-  padding:14px 40px;
-  z-index:10;
+  padding:14px 24px;
+  z-index:20;
   transition:box-shadow .3s;
 }
-.cyber-header.scrolled{box-shadow:0 0 20px var(--accent);}
-.logo{font-family:"Orbitron";color:var(--accent);font-weight:800;}
-nav ul{display:flex;gap:20px;list-style:none;}
+.cyber-header.scrolled{box-shadow:0 0 18px var(--accent);}
+.logo{font-family:"Orbitron";font-size:1.1rem;color:var(--accent);}
+nav ul{display:flex;gap:16px;list-style:none;}
 nav a{text-decoration:none;color:var(--text);font-weight:600;}
 nav a:hover{color:var(--accent3);}
 
-/* HERO SECTION — FIXED HEIGHT FOR MOBILE SAMSUNG INTERNET */
-.hero-section {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  overflow: hidden;
-  height: 100dvh; /* برای مرورگرهای مدرن */
-  min-height: 92svh; /* fallback برای قدیمی‌ترها */
-  padding-top: 70px; /* جا برای منوی ثابتی که بالاست */
+.hero-section{
+  position:relative;
+  height:100dvh;
+  min-height:100svh;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  padding-top:70px;overflow:hidden;
 }
 #particles{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;}
-.hero-content{position:relative;z-index:2;max-width:600px; padding: 0 20px;}
-.hero-content h1{font-family:"Orbitron";font-size:2.3rem;color:var(--accent);}
+.hero-content{z-index:2;max-width:600px;padding:0 20px;}
+.hero-content h1{font-family:"Orbitron";font-size:2.2rem;color:var(--accent);}
 .hero-content p{margin:14px 0;color:var(--muted);}
-.cta-btn{background:linear-gradient(90deg,var(--accent2),var(--accent3));color:#fff;padding:12px 28px;border-radius:10px;font-weight:700;display:inline-block;}
-.cta-btn:hover{transform:scale(1.05);}
+.cta-btn{
+  background:linear-gradient(90deg,var(--accent2),var(--accent3));
+  color:#fff;padding:14px 28px;border-radius:10px;font-weight:700;
+  border:none;cursor:pointer;transition:transform .2s;
+}
+.cta-btn:hover{transform:scale(1.07);}
 
-/* FEATURES */
-section{padding:90px 0;}
-.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;max-width:900px;margin:auto;}
-.feature-card{padding:30px;background:rgba(255,255,255,.8);border-radius:14px;text-align:center;box-shadow:0 0 8px rgba(0,0,0,.05);}
-.feature-card:hover{transform:translateY(-5px);}
-.stats{display:flex;justify-content:center;gap:40px;text-align:center;}
+/* Section General */
+.section{padding:80px 16px;text-align:center;}
+.features-grid,.gallery-grid{display:grid;gap:24px;max-width:1000px;margin:auto;}
+.features-grid{grid-template-columns:repeat(auto-fit,minmax(230px,1fr));}
+.feature-card{padding:30px;background:rgba(255,255,255,.85);border-radius:14px;box-shadow:0 0 8px rgba(0,0,0,.05);transition:.3s;}
+.feature-card:hover{transform:translateY(-6px);}
+.stats{display:flex;flex-wrap:wrap;justify-content:center;gap:32px;}
 .counter{font-size:2rem;color:var(--accent2);}
-.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;max-width:1000px;margin:auto;}
-.gallery-grid img{width:100%;border-radius:12px;cursor:pointer;transition:transform .3s;}
+.gallery-grid img{width:100%;border-radius:12px;transition:transform .3s;}
 .gallery-grid img:hover{transform:scale(1.03);}
-
-/* SLIDER */
-.slider{max-width:700px;margin:0 auto;position:relative;overflow:hidden;}
+.slider{max-width:700px;margin:0 auto;overflow:hidden;}
 .slide{display:none;text-align:center;padding:20px;font-size:1.1rem;}
 .slide.active{display:block;animation:fade 1s;}
 @keyframes fade{from{opacity:0}to{opacity:1}}
 
-/* PRICING */
-.pricing-grid{display:flex;gap:30px;justify-content:center;}
-.plan{flex:1;padding:20px;background:rgba(255,255,255,.7);border-radius:12px;text-align:center;}
+.pricing-grid{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;}
+.plan{
+  background:rgba(255,255,255,.9);
+  border-radius:12px;padding:20px;width:260px;
+  border:none;cursor:pointer;transition:transform .2s,border .2s;
+}
 .plan h3{color:var(--accent2);}
 .plan p{color:var(--accent3);font-size:1.3rem;}
-.highlight{border:2px solid var(--accent);transform:scale(1.05);}
+.plan:hover{transform:scale(1.05);}
+.highlight{border:2px solid var(--accent);}
 
-/* CONTACT */
-.contact form{display:flex;flex-direction:column;gap:12px;max-width:500px;margin:auto;}
-.contact input,.contact textarea{padding:10px;border-radius:8px;border:1px solid #ccc;}
-.contact button{background:var(--accent2);color:#fff;border:none;padding:10px;border-radius:8px;cursor:pointer;}
+.contact form{
+  display:flex;flex-direction:column;gap:12px;
+  max-width:400px;margin:auto;margin-top:20px;
+}
+.contact input,.contact textarea{
+  padding:10px;border-radius:8px;border:1px solid #ccc;
+  font-family:inherit;font-size:1rem;
+}
+.contact textarea{min-height:100px;resize:vertical;}
+.contact button{
+  background:var(--accent2);color:#fff;border:none;padding:12px;border-radius:8px;
+  font-weight:600;cursor:pointer;font-size:1rem;
+}
 .contact button:hover{background:var(--accent3);color:#000;}
 #formMessage{text-align:center;margin-top:10px;color:var(--accent3);}
-footer{text-align:center;padding:20px;color:var(--muted);margin-top:50px;}
+footer{text-align:center;padding:24px;color:var(--muted);margin-top:40px;}
 
-/* RESPONSIVE */
 @media(max-width:768px){
-  .hero-section{height:92dvh;padding-top:60px;}
-  section{padding:50px 0;}
-  .pricing-grid{flex-direction:column;}
+  .hero-content h1{font-size:1.8rem;}
+  .hero-section{padding-top:60px;}
+  .plan{width:90%;}
+  section{padding:60px 12px;}
 }
+
 
 
 
