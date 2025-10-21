@@ -9,7 +9,10 @@
   --accent3: #00ffa9;
   --muted: #64748b;
 }
-
+body {
+  background: var(--bg);
+  color: var(--text);
+}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -288,6 +291,7 @@ footer {
     font-size: 1rem;
   }
 }
+
 
 
 
