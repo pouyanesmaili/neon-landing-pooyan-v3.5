@@ -19,7 +19,9 @@ document.addEventListener("scroll",()=>{
 const counters=document.querySelectorAll(".counter");
 let started=false;
 function runCounters(){
-  if(!started && window.scrollY+window.innerHeight>document.getElementById("stats").offsetTop){
+  const stats = document.getElementById("stats");
+  if (!stats) return; // safe‑guard
+  if(!started && window.scrollY+window.innerHeight>stats.offsetTop){
     counters.forEach(c=>{
       const target=+c.dataset.target;
       let count=0;
@@ -29,7 +31,8 @@ function runCounters(){
         else c.textContent=target;
       };
       update();
-    });started=true;
+    });
+    started=true;
   }
 }
 window.addEventListener("scroll",runCounters);
@@ -50,6 +53,7 @@ galleryImgs.forEach(img=>{
 let slideIndex=0;
 const slides=document.querySelectorAll(".slide");
 function showSlides(){
+  if(!slides.length) return;
   slides.forEach(s=>s.classList.remove("active"));
   slides[slideIndex].classList.add("active");
   slideIndex=(slideIndex+1)%slides.length;
@@ -58,33 +62,75 @@ setInterval(showSlides,3000);
 
 // === Form ===
 const form=document.getElementById("contactForm");
-form.addEventListener("submit",e=>{
-  e.preventDefault();
-  document.getElementById("formMessage").textContent="درحال ارسال...";
-  setTimeout(()=>{
-    document.getElementById("formMessage").textContent="پیام شما با موفقیت ارسال شد 💌";
-    form.reset();
-  },1200);
-});
+if(form){
+  form.addEventListener("submit",e=>{
+    e.preventDefault();
+    document.getElementById("formMessage").textContent="درحال ارسال...";
+    setTimeout(()=>{
+      document.getElementById("formMessage").textContent="پیام شما با موفقیت ارسال شد 💌";
+      form.reset();
+    },1200);
+  });
+}
 
 // === Particles ===
 const canvas=document.getElementById("particles");
-const ctx=canvas.getContext("2d");
-canvas.width=innerWidth;canvas.height=innerHeight;
-let particles=[];
-class Particle{constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.size=Math.random()*2+1;this.speedX=Math.random()-.5;this.speedY=Math.random()-.5;}
-update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x<0||this.x>canvas.width)this.speedX*=-1;if(this.y<0||this.y>canvas.height)this.speedY*=-1;}
-draw(){ctx.fillStyle="#22d3ee";ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill();}}
-for(let i=0;i<80;i++){particles.push(new Particle());}
-function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animate);}
-animate();
+if(canvas){
+  const ctx=canvas.getContext("2d");
+  function resizeCanvas(){
+    canvas.width=innerWidth;
+    canvas.height=innerHeight;
+  }
+  resizeCanvas();
+  window.addEventListener("resize", resizeCanvas);
+
+  // ✅ Particle count adaptive to device width
+  const particleCount = window.innerWidth < 768 ? 25 : 80;
+  let particles=[];
+  class Particle{
+    constructor(){
+      this.x=Math.random()*canvas.width;
+      this.y=Math.random()*canvas.height;
+      this.size=Math.random()*2+1;
+      this.speedX=Math.random()-.5;
+      this.speedY=Math.random()-.5;
+    }
+    update(){
+      this.x+=this.speedX;
+      this.y+=this.speedY;
+      if(this.x<0||this.x>canvas.width)this.speedX*=-1;
+      if(this.y<0||this.y>canvas.height)this.speedY*=-1;
+    }
+    draw(){
+      ctx.fillStyle="#22d3ee";
+      ctx.beginPath();
+      ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+      ctx.fill();
+    }
+  }
+  for(let i=0;i<particleCount;i++){particles.push(new Particle());}
+
+  function animate(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    particles.forEach(p=>{p.update();p.draw();});
+    requestAnimationFrame(animate);
+  }
+  animate();
+}
 
 // === Theme switch ===
 const toggle=document.getElementById("theme-toggle");
-if(localStorage.getItem("theme")==="dark"){document.body.classList.remove("light");document.body.classList.add("dark");}
-toggle.addEventListener("click",()=>{
-  document.body.classList.toggle("dark");
-  document.body.classList.toggle("light");
-  localStorage.setItem("theme",document.body.classList.contains("dark")?"dark":"light");
-});
+if(localStorage.getItem("theme")==="dark"){
+  document.body.classList.remove("light");
+  document.body.classList.add("dark");
+}
+if(toggle){
+  toggle.addEventListener("click",()=>{
+    document.body.classList.toggle("dark");
+    document.body.classList.toggle("light");
+    localStorage.setItem("theme",document.body.classList.contains("dark")?"dark":"light");
+  });
+}
 document.body.classList.add("light"); // default
+
+
