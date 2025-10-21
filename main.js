@@ -64,13 +64,31 @@ function resizeCanvas(){
   canvas.width = window.innerWidth;
   canvas.height = realHeight * 0.97;  // جلوگیری از برش پایین در Samsung Internet
 }
+// اجرای اولیه
 resizeCanvas();
-window.visualViewport?.addEventListener("resize",resizeCanvas);
-window.addEventListener("resize",resizeCanvas);
 
-const particleCount=window.innerWidth<768?25:80;
-const particles=[];
-class Particle{
+// پچ چرخش صفحه (رفع باگ portrait در Samsung Internet)
+let rotateTimeout;
+window.addEventListener("orientationchange", () => {
+  clearTimeout(rotateTimeout);
+  rotateTimeout = setTimeout(() => {
+    resizeCanvas();
+  }, 350); // صبر تا viewport واقعی آپدیت بشه
+});
+
+// مانیتور تغییرات دقیق ویوپورت
+window.visualViewport?.addEventListener("resize", () => {
+  resizeCanvas();
+});
+
+// اطمینان نهایی از هم‌ترازی هنگام تغییر سایز
+window.addEventListener("resize", resizeCanvas);
+
+// ادامه‌ی کد ذرات 👇
+const particleCount = window.innerWidth < 768 ? 25 : 80;
+const particles = [];
+class Particle {
+
   constructor(){
     this.x=Math.random()*canvas.width;
     this.y=Math.random()*canvas.height;
@@ -97,6 +115,7 @@ function animate(){
   requestAnimationFrame(animate);
 }
 animate();
+
 
 
 
