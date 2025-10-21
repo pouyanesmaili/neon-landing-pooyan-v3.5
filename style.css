@@ -1,10 +1,10 @@
 /* ============================================================
    RoG3r NEO V3.6 — Cyber Elite TANK Edition
    ⓒ ساخته با عشق توسط پویان ❤️ | Pouyan Esmaeili
-   شامل: هدر همبرگری 🍔 + ساختار کامل صفحه
+   شامل: Navbar همبرگری 🍔 + ساختار کامل صفحه + اصلاح Hero
 ============================================================ */
 
-/* رنگ‌های اصلی */
+/* 🎯 رنگ‌های اصلی */
 :root {
   --bg: #f8fbff;
   --text: #0a0a23;
@@ -14,7 +14,7 @@
   --muted: #64748b;
 }
 
-/* تنظیمات عمومی */
+/* 🧩 تنظیمات عمومی */
 * {
   margin: 0;
   padding: 0;
@@ -57,7 +57,7 @@ body {
   white-space: nowrap;
 }
 
-/* منو */
+/* منوی ناوبری */
 nav ul {
   display: flex;
   gap: 16px;
@@ -66,7 +66,6 @@ nav ul {
   margin: 0;
   padding: 0;
 }
-
 nav a {
   text-decoration: none;
   color: var(--text);
@@ -76,7 +75,6 @@ nav a {
   padding: 6px 10px;
   transition: all 0.2s ease;
 }
-
 nav a:hover {
   color: var(--accent2);
   background: rgba(0,0,0,0.05);
@@ -91,7 +89,7 @@ nav a:hover {
 }
 
 /* ==========================
-   HERO SECTION
+   🚀 HERO SECTION
 ========================== */
 .hero-section {
   height: 100dvh;
@@ -101,7 +99,7 @@ nav a:hover {
   justify-content: center;
   text-align: center;
   position: relative;
-  padding-top: 70px;
+  padding-top: 80px; /* فاصله از Navbar ثابت */
   overflow: hidden;
 }
 #particles {
@@ -115,6 +113,12 @@ nav a:hover {
   z-index: 2;
   max-width: 600px;
   padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100dvh - 80px);
+  box-sizing: border-box;
 }
 .hero-content h1 {
   font-family: "Orbitron", sans-serif;
@@ -138,7 +142,7 @@ nav a:hover {
 .cta-btn:hover { transform: scale(1.07); }
 
 /* ==========================
-   SECTIONS GENERAL
+   SECTION BASE STYLE
 ========================== */
 .section {
   padding: 80px 20px;
@@ -287,11 +291,11 @@ footer {
   font-size: 0.9rem;
 }
 
-/* ======================================
-   📱 واکنش‌گرایی - موبایل و تبلت
-====================================== */
+/* ==========================
+   📱 واکنش‌گرایی (Responsive)
+========================== */
 @media (max-width: 768px) {
-  /* همبرگری فعال */
+  /* فعال‌سازی دکمه همبرگری */
   .nav-toggle {
     display: block;
     position: absolute;
@@ -317,7 +321,6 @@ footer {
     text-align: center;
     padding: 10px 0;
   }
-
   .hero-content h1 {
     font-size: 1.9rem;
   }
@@ -333,6 +336,8 @@ footer {
   .feature-card { padding: 20px; }
   .plan { width: 100%; }
 }
+
+
 
 
 
