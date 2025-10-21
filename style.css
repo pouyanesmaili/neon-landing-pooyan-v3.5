@@ -1,6 +1,6 @@
 /* ============================================================
-   RoG3r NEO V3.6 — Cyber Elite TANK Edition
-   ⓒ ساخته با عشق توسط پویان ❤️ | Pouyan Esmaeili
+   RoG3r NEO V3.6.1 — Cyber Elite TANK Edition FINAL
+   ساخته با عشق ❤️ توسط پویان | Pouyan Esmaeili
    شامل: Navbar همبرگری 🍔 + ساختار کامل صفحه + اصلاح Hero
 ============================================================ */
 
@@ -124,10 +124,13 @@ nav a:hover {
   font-family: "Orbitron", sans-serif;
   font-size: 2.4rem;
   color: var(--accent);
+  line-height: 1.5;
 }
 .hero-content p {
   color: var(--muted);
   margin: 16px 0;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 .cta-btn {
   background: linear-gradient(90deg, var(--accent2), var(--accent3));
@@ -294,8 +297,7 @@ footer {
 /* ==========================
    📱 واکنش‌گرایی (Responsive)
 ========================== */
-@media (max-width: 700px) {
-  /* فعال‌سازی دکمه همبرگری */
+@media (max-width: 768px) {
   .nav-toggle {
     display: block;
     position: absolute;
@@ -328,14 +330,22 @@ footer {
   .plan { width: 90%; }
 }
 
-/* موبایل‌های خیلی کوچک */
-@media (max-width: 450px) {
-  .hero-content h1 { font-size: 1.2rem; }
-  .logo { font-size: 0.85rem; }
+/* موبایل‌های خیلی کوچک: اصلاح فونت خوش‌آمد */
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+  .hero-content p {
+    font-size: 0.85rem;
+  }
+  .logo { font-size: 0.95rem; }
   .cta-btn { padding: 10px 20px; }
   .feature-card { padding: 20px; }
   .plan { width: 100%; }
 }
+
+
 
 
 
