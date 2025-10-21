@@ -337,6 +337,33 @@ footer {
   }
 }
 
+/* === HERO MOBILE FIX V3.5.4 === */
+.hero-section {
+  position: relative;
+  height: 100svh; /* ← از vh به svh که با Address Bar سازگاره */
+  min-height: 650px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-section canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    height: 90svh; /* خط طلایی برای موبایل */
+    padding-top: 60px;
+  }
+}
+
 
 
 
