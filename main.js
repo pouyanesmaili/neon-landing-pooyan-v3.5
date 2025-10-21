@@ -1,15 +1,15 @@
-// === Typewriter ===
-const text = "به دنیای RoG3r Neo V3.5 خوش آمدی ⚡";
-let idx = 0;
+// === TypeWriter ===
+const text="به دنیای RoG3r Neo V3.5 خوش آمدی ⚡";
+let idx=0;
 function type(){
-  if(idx < text.length){
-    document.getElementById("typewriter").textContent += text[idx++];
-    setTimeout(type, 90);
+  if(idx<text.length){
+    document.getElementById("typewriter").textContent+=text[idx++];
+    setTimeout(type,90);
   }
 }
-window.addEventListener("load", type);
+window.addEventListener("load",type);
 
-// === Scroll Header Glow ===
+// === Header Glow ===
 window.addEventListener("scroll",()=>{
   const header=document.querySelector(".cyber-header");
   header.classList.toggle("scrolled",window.scrollY>50);
@@ -44,13 +44,21 @@ function showSlides(){
 }
 setInterval(showSlides,3000);
 
+// === Plan Buttons ===
+document.querySelectorAll(".plan").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    alert(`پلن "${btn.querySelector("h3").textContent}" انتخاب شد ✅`);
+  });
+});
+
 // === Contact Form ===
 const form=document.getElementById("contactForm");
 form.addEventListener("submit",e=>{
   e.preventDefault();
-  document.getElementById("formMessage").textContent="درحال ارسال...";
+  const msg=document.getElementById("formMessage");
+  msg.textContent="درحال ارسال...";
   setTimeout(()=>{
-    document.getElementById("formMessage").textContent="پیام شما با موفقیت ارسال شد 💌";
+    msg.textContent="پیام شما با موفقیت ارسال شد 💌";
     form.reset();
   },1200);
 });
@@ -58,29 +66,20 @@ form.addEventListener("submit",e=>{
 // === Particles (Mobile Safe) ===
 const canvas=document.getElementById("particles");
 const ctx=canvas.getContext("2d");
-
-function resizeCanvas() {
-  const headerHeight = document.querySelector(".cyber-header").offsetHeight || 60;
-  const realHeight =
-    (window.visualViewport ? window.visualViewport.height : window.innerHeight) - headerHeight;
-  canvas.width = window.innerWidth;
-  canvas.height = realHeight;
+function resizeCanvas(){
+  const headerHeight=document.querySelector(".cyber-header").offsetHeight||60;
+  const realHeight=(window.visualViewport?window.visualViewport.height:window.innerHeight)-headerHeight;
+  canvas.width=window.innerWidth;
+  canvas.height=realHeight;
 }
 resizeCanvas();
+window.visualViewport?.addEventListener("resize",resizeCanvas);
+window.addEventListener("resize",resizeCanvas);
+window.addEventListener("orientationchange",()=>setTimeout(resizeCanvas,350));
 
-let rotateTimeout;
-window.addEventListener("orientationchange", () => {
-  clearTimeout(rotateTimeout);
-  rotateTimeout = setTimeout(resizeCanvas, 350);
-});
-window.visualViewport?.addEventListener("resize", resizeCanvas);
-window.addEventListener("resize", resizeCanvas);
-
-// ادامه‌ی کد ذرات 👇
-const particleCount = window.innerWidth < 768 ? 25 : 80;
-const particles = [];
-class Particle {
-
+const particleCount=window.innerWidth<768?22:80;
+const particles=[];
+class Particle{
   constructor(){
     this.x=Math.random()*canvas.width;
     this.y=Math.random()*canvas.height;
@@ -107,6 +106,7 @@ function animate(){
   requestAnimationFrame(animate);
 }
 animate();
+
 
 
 
