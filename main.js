@@ -80,10 +80,18 @@ const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
 
 function resizeCanvas() {
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight * 0.9; // برای تطبیق با موبایل
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight * 0.9; // برای هماهنگی با موبایل
+}
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
 
 }
+const particleCount = window.innerWidth < 768 ? 25 : 80;
+for (let i = 0; i < particleCount; i++) {
+  particles.push(new Particle());
+}
+
 resizeCanvas();
 
 let particles = [];
@@ -123,6 +131,7 @@ function animate() {
   requestAnimationFrame(animate);
 }
 animate();
+
 
 
 
