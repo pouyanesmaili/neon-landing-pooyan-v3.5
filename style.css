@@ -1,102 +1,393 @@
+/* ================================
+   RoG3r Neo V3.6.0 — Cyber Elite TANK Edition
+   Full CSS Pack (Responsive + Fixed Navbar)
+   ساخته با عشق توسط پویان ❤️
+===================================*/
+
 :root {
-  --bg:#f8fbff;
-  --text:#0a0a23;
-  --accent:#22d3ee;
-  --accent2:#a855f7;
-  --accent3:#00ffa9;
-  --muted:#64748b;
+  --bg: #f8fbff;
+  --text: #0a0a23;
+  --accent: #22d3ee;
+  --accent2: #a855f7;
+  --accent3: #00ffa9;
+  --muted: #64748b;
 }
 
-*{margin:0;padding:0;box-sizing:border-box;}
-body{
-  font-family:"Vazirmatn",sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  overflow-x:hidden;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.cyber-header{
-  position:fixed;top:0;width:100%;
-  display:flex;justify-content:space-between;align-items:center;
-  background:rgba(255,255,255,0.8);
-  backdrop-filter:blur(8px);
-  padding:14px 24px;
-  z-index:20;
-  transition:box-shadow .3s;
+body {
+  font-family: "Vazirmatn", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
 }
-.cyber-header.scrolled{box-shadow:0 0 18px var(--accent);}
-.logo{font-family:"Orbitron";font-size:1.1rem;color:var(--accent);}
-nav ul{display:flex;gap:16px;list-style:none;}
-nav a{text-decoration:none;color:var(--text);font-weight:600;}
-nav a:hover{color:var(--accent3);}
 
-.hero-section{
-  position:relative;
-  height:100dvh;
-  min-height:100svh;
-  display:flex;align-items:center;justify-content:center;text-align:center;
-  padding-top:70px;overflow:hidden;
+/* =======================
+   🧭  NAVBAR / HEADER
+======================= */
+.cyber-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  padding: 10px 18px;
+  z-index: 999;
+  transition: box-shadow .3s, background .3s;
+  overflow: hidden;
 }
-#particles{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;}
-.hero-content{z-index:2;max-width:600px;padding:0 20px;}
-.hero-content h1{font-family:"Orbitron";font-size:2.2rem;color:var(--accent);}
-.hero-content p{margin:14px 0;color:var(--muted);}
-.cta-btn{
-  background:linear-gradient(90deg,var(--accent2),var(--accent3));
-  color:#fff;padding:14px 28px;border-radius:10px;font-weight:700;
-  border:none;cursor:pointer;transition:transform .2s;
+.cyber-header.scrolled {
+  box-shadow: 0 0 18px var(--accent);
 }
-.cta-btn:hover{transform:scale(1.07);}
 
-/* Section General */
-.section{padding:80px 16px;text-align:center;}
-.features-grid,.gallery-grid{display:grid;gap:24px;max-width:1000px;margin:auto;}
-.features-grid{grid-template-columns:repeat(auto-fit,minmax(230px,1fr));}
-.feature-card{padding:30px;background:rgba(255,255,255,.85);border-radius:14px;box-shadow:0 0 8px rgba(0,0,0,.05);transition:.3s;}
-.feature-card:hover{transform:translateY(-6px);}
-.stats{display:flex;flex-wrap:wrap;justify-content:center;gap:32px;}
-.counter{font-size:2rem;color:var(--accent2);}
-.gallery-grid img{width:100%;border-radius:12px;transition:transform .3s;}
-.gallery-grid img:hover{transform:scale(1.03);}
-.slider{max-width:700px;margin:0 auto;overflow:hidden;}
-.slide{display:none;text-align:center;padding:20px;font-size:1.1rem;}
-.slide.active{display:block;animation:fade 1s;}
-@keyframes fade{from{opacity:0}to{opacity:1}}
+.logo {
+  font-family: "Orbitron";
+  font-size: 1rem;
+  color: var(--accent);
+  white-space: nowrap;
+}
 
-.pricing-grid{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;}
-.plan{
-  background:rgba(255,255,255,.9);
-  border-radius:12px;padding:20px;width:260px;
-  border:none;cursor:pointer;transition:transform .2s,border .2s;
+nav ul {
+  display: flex;
+  gap: 12px;
+  list-style: none;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
 }
-.plan h3{color:var(--accent2);}
-.plan p{color:var(--accent3);font-size:1.3rem;}
-.plan:hover{transform:scale(1.05);}
-.highlight{border:2px solid var(--accent);}
 
-.contact form{
-  display:flex;flex-direction:column;gap:12px;
-  max-width:400px;margin:auto;margin-top:20px;
+nav a {
+  display: block;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition: all 0.2s;
 }
-.contact input,.contact textarea{
-  padding:10px;border-radius:8px;border:1px solid #ccc;
-  font-family:inherit;font-size:1rem;
-}
-.contact textarea{min-height:100px;resize:vertical;}
-.contact button{
-  background:var(--accent2);color:#fff;border:none;padding:12px;border-radius:8px;
-  font-weight:600;cursor:pointer;font-size:1rem;
-}
-.contact button:hover{background:var(--accent3);color:#000;}
-#formMessage{text-align:center;margin-top:10px;color:var(--accent3);}
-footer{text-align:center;padding:24px;color:var(--muted);margin-top:40px;}
 
-@media(max-width:768px){
-  .hero-content h1{font-size:1.8rem;}
-  .hero-section{padding-top:60px;}
-  .plan{width:90%;}
-  section{padding:60px 12px;}
+nav a:hover {
+  color: var(--accent3);
+  background: rgba(0, 0, 0, 0.05);
 }
+
+/* همبرگر آیکن فقط در موبایل */
+.nav-toggle {
+  display: none;
+}
+
+/* --- واکنشگرایی برای موبایل --- */
+@media (max-width: 768px) {
+  .cyber-header {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 8px 10px;
+  }
+  .logo {
+    text-align: center;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+  }
+  nav ul {
+    justify-content: center;
+    gap: 8px;
+  }
+  nav a {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+  }
+}
+
+/* منوی همبرگری در گوشی‌های کوچک */
+@media (max-width: 480px) {
+  .nav-toggle {
+    display: block;
+    position: absolute;
+    top: 14px;
+    left: 16px;
+    font-size: 1.2rem;
+    color: var(--accent2);
+    cursor: pointer;
+  }
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background: rgba(255,255,255,0.95);
+    position: absolute;
+    top: 55px;
+    right: 0;
+    left: 0;
+    padding: 10px 0;
+    border-top: 1px solid rgba(0,0,0,0.05);
+  }
+  nav ul.open {
+    display: flex;
+  }
+}
+
+/* =======================
+   🎯 HERO SECTION
+======================= */
+.hero-section {
+  position: relative;
+  height: 100dvh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 70px;
+  overflow: hidden;
+}
+#particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.hero-content {
+  z-index: 2;
+  max-width: 600px;
+  padding: 0 20px;
+}
+.hero-content h1 {
+  font-family: "Orbitron";
+  font-size: 2.4rem;
+  color: var(--accent);
+}
+.hero-content p {
+  margin: 14px 0;
+  color: var(--muted);
+}
+.cta-btn {
+  background: linear-gradient(90deg, var(--accent2), var(--accent3));
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: transform .2s;
+}
+.cta-btn:hover {
+  transform: scale(1.07);
+}
+
+/* =======================
+   ⚙️  SECTIONS
+======================= */
+.section {
+  padding: 80px 16px;
+  text-align: center;
+}
+
+/* ------------------
+   ویژگی‌ها
+------------------ */
+.features-grid,
+.gallery-grid {
+  display: grid;
+  gap: 24px;
+  max-width: 1000px;
+  margin: auto;
+}
+.features-grid {
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+.feature-card {
+  padding: 30px;
+  background: rgba(255,255,255,.85);
+  border-radius: 14px;
+  box-shadow: 0 0 8px rgba(0,0,0,.05);
+  transition: .3s;
+}
+.feature-card:hover {
+  transform: translateY(-6px);
+}
+
+/* ------------------
+   آمار
+------------------ */
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+}
+.counter {
+  font-size: 2rem;
+  color: var(--accent2);
+}
+
+/* ------------------
+   گالری
+------------------ */
+.gallery-grid img {
+  width: 100%;
+  border-radius: 12px;
+  transition: transform .3s;
+}
+.gallery-grid img:hover {
+  transform: scale(1.03);
+}
+
+/* ------------------
+   نظرات / اسلایدر
+------------------ */
+.slider {
+  max-width: 700px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.slide {
+  display: none;
+  text-align: center;
+  padding: 20px;
+  font-size: 1.1rem;
+}
+.slide.active {
+  display: block;
+  animation: fade 1s;
+}
+@keyframes fade {
+  from {opacity:0}
+  to {opacity:1}
+}
+
+/* ------------------
+   پلن‌ها
+------------------ */
+.pricing-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.plan {
+  background: rgba(255,255,255,.9);
+  border-radius: 12px;
+  padding: 20px;
+  width: 260px;
+  border: none;
+  cursor: pointer;
+  transition: transform .2s, border .2s;
+}
+.plan h3 {
+  color: var(--accent2);
+}
+.plan p {
+  color: var(--accent3);
+  font-size: 1.3rem;
+}
+.plan:hover {
+  transform: scale(1.05);
+}
+.highlight {
+  border: 2px solid var(--accent);
+}
+
+/* ------------------
+   تماس
+------------------ */
+.contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 400px;
+  margin: auto;
+  margin-top: 20px;
+}
+.contact input,
+.contact textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+  font-size: 1rem;
+}
+.contact textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+.contact button {
+  background: var(--accent2);
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.contact button:hover {
+  background: var(--accent3);
+  color: #000;
+}
+#formMessage {
+  text-align: center;
+  margin-top: 10px;
+  color: var(--accent3);
+}
+
+/* ------------------
+   فوتر
+------------------ */
+footer {
+  text-align: center;
+  padding: 24px;
+  color: var(--muted);
+  margin-top: 40px;
+}
+
+/* =======================
+   📱  MOBILE ADJUSTMENTS
+======================= */
+@media(max-width: 768px) {
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+  .hero-section {
+    padding-top: 60px;
+  }
+  .plan {
+    width: 90%;
+  }
+  .section {
+    padding: 60px 12px;
+  }
+}
+
+@media(max-width: 480px) {
+  .hero-content h1 {
+    font-size: 1.5rem;
+  }
+  .cta-btn {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+  .feature-card {
+    padding: 20px;
+  }
+  .plan {
+    width: 100%;
+  }
+  .logo {
+    font-size: 0.9rem;
+  }
+}
+
 
 
 
