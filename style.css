@@ -294,7 +294,7 @@ footer {
 /* ==========================
    📱 واکنش‌گرایی (Responsive)
 ========================== */
-@media (max-width: 768px) {
+@media (max-width: 700px) {
   /* فعال‌سازی دکمه همبرگری */
   .nav-toggle {
     display: block;
@@ -329,13 +329,14 @@ footer {
 }
 
 /* موبایل‌های خیلی کوچک */
-@media (max-width: 480px) {
-  .hero-content h1 { font-size: 1.5rem; }
-  .logo { font-size: 0.95rem; }
+@media (max-width: 450px) {
+  .hero-content h1 { font-size: 1.2rem; }
+  .logo { font-size: 0.85rem; }
   .cta-btn { padding: 10px 20px; }
   .feature-card { padding: 20px; }
   .plan { width: 100%; }
 }
+
 
 
 
