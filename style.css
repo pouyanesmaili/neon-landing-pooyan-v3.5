@@ -36,6 +36,7 @@ h2 {
 
 /* === HEADER === */
 .cyber-header {
+  box-sizing: border-box;
   position: fixed;
   top: 0;
   width: 100%;
@@ -48,6 +49,7 @@ h2 {
   z-index: 10;
   transition: box-shadow 0.3s;
 }
+
 .cyber-header.scrolled {
   box-shadow: 0 0 20px var(--accent);
 }
@@ -334,6 +336,7 @@ footer {
     font-size: 0.95rem;
   }
 }
+
 
 
 
